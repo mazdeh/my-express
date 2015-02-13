@@ -1,0 +1,19 @@
+extends layout.jade
+
+block content
+	div.row
+		div.four.columns
+			br
+		div.six.columns
+			br
+			h3(style="text-align: center") UCDD II Last 30 Events
+			
+	each item in events   
+		div.row
+			div.five.columns
+				a(href='/view/event/'+item.id)
+					h5= item.type
+			div.four.columns
+				p= item.repo.name
+			div.three.columns
+				p= item.created_at

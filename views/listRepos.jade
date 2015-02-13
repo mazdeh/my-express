@@ -1,0 +1,17 @@
+extends layout.jade
+
+block content
+	div.row
+		div.four.columns
+			br
+		div.six.columns
+			br
+			h3 UCDD II Repos
+			
+	each item in repos   
+		div.row 
+			div.ten.columns
+				a(href='/view/repo/'+item.id)
+					h5= item.name
+			div.two.columns
+				p= item.owner.login

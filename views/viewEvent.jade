@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	div.row
+		div.five.columns
+			h3= events.type
+			br
+		div#example-grid
+			div.nine.columns(style='text-align: center')
+				div.row
+					div.three.columns 
+						b By:
+					div.seven.columns
+						a(href=events.actor.url)
+							=events.actor.login
+					div.two.columns
+						img(src=events.actor.avatar_url)
+				div.row
+					div.three.columns
+						b Repository:
+					div.nine.columns
+						a(href='/view/repo/'+events.repo.id)
+							=events.repo.name
+				div.row
+					div.three.columns
+						b Date:
+					div.nine.columns
+						=events.created_at
+				div.row
+					div.three.columns
+						b Public:
+					div.nine.columns
+						if (events.public)
+							b| Yes
+						else
+							b| No
+	br
+	br
