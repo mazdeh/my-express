@@ -5,7 +5,7 @@ module.exports = function(app) {
         var events = app.db.get('events')
 
          var q = {
-            'id': req.params.id            
+            'id': req.params.id
         }
 
         var events = events.findOne(q, function(err, item) {

@@ -2,5 +2,56 @@ extends layout
 
 block content
 	div.row
-		div.eleven.columns
-			h3= repo.name
+		div.five.columns
+			h3= repos.name
+			br
+		div#example-grid
+			div.nine.columns(style='text-align: center')
+				div.row
+					div.three.columns 
+						b Owner:
+					div.seven.columns
+						a(href=repos.owner.html_url)
+							=repos.owner.login
+					div.two.columns
+						img(src=repos.owner.avatar_url)
+				if (repos.description)
+					div.row
+						div.three.columns
+							b Description:
+						div.nine.columns
+							=repos.description
+				div.row
+					div.three.columns
+						b Repository:
+					div.nine.columns
+						a(href=repos.html_url)
+							=repos.html_url
+				div.row
+					div.three.columns
+						b Date Created:
+					div.nine.columns
+						=repos.created_at
+				div.row
+					div.three.columns
+						b Public:
+					div.nine.columns
+						if (repos.public)
+							b| Yes
+						else
+							b| No
+				div.row
+					div.three.columns
+						b Forks:
+					div.nine.columns
+						=repos.forks_count
+				div.row
+					div.three.columns
+						b Watchers:
+					div.nine.columns
+						=repos.watchers
+				div.row
+					div.three.columns
+						b Open Issues:
+					div.nine.columns
+						=repos.open_issues

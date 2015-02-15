@@ -5,13 +5,13 @@ module.exports = function(app) {
         var repos = app.db.get('repos')
 
          var q = {
-            'id': req.params.id            
+            'id': Number(req.params.id)
         }
 
-        var repo = repos.findOne(q, function(err, item) {
+        var repos = repos.findOne(q, function(err, item) {
 
             res.render('viewRepo.jade', {
-                repo: item
+                repos: item
             })
         })
 
