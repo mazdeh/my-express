@@ -22,7 +22,9 @@ require('./mongo/repoView')(app)
 require('./mongo/eventsList')(app)
 require('./mongo/eventView')(app)
 
-var server = app.listen(3000, function() {
+app.set('port', (process.env.PORT || 3000))
+
+var server = app.listen(app.get('port'), function() {
 
     var host = server.address().address
     var port = server.address().port
